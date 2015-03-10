@@ -1,0 +1,24 @@
+{
+  "name": "codeEditor",
+  "version": "0.0.0",
+  "authors": [
+    "sangress <shai.angress@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "codemirror": "~5.0.0",
+    "angular": "~1.3.14",
+    "bootstrap": "~3.3.2",
+    "angular-ui-codemirror": "~0.2.3",
+    "angular-route": "~1.3.14"
+  }
+}

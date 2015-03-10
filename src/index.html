@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+
+    <link rel="stylesheet" href="style/style.css"/>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <nav class="navbar navbar-default"></nav>
+
+    <div class="content">
+        <div ng-view></div>
+        <!--<ui-codemirror ui-codemirror-opts="editorOptions" ng-model="file"></ui-codemirror>-->
+    </div>
+
+
+</div>
+
+<!-- bower:js -->
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/codemirror/lib/codemirror.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/angular-ui-codemirror/ui-codemirror.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<!-- endbower -->
+
+<script type="text/javascript" src="editor_modes/javascript/javascript.js"></script>
+
+<script type="text/javascript" src="config/config.js"></script>
+<script type="text/javascript" src="config/application.js"></script>
+
+
+<script src="js/basics.js"></script>
+<script src="js/editor/editor.module.js"></script>
+<script src="js/editor/editor.controller.js"></script>
+<script type="text/javascript" src="js/editor/editor.routes.js"></script>
+<script type="text/javascript" src="js/common/directives/nav/nav.directive.js"></script>
+
+</body>
+</html>

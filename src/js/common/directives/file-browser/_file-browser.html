@@ -1,0 +1,60 @@
+<div class="floating-window" data-ng-show="showFileBrowser" data-ng-class="{'fade-in-down': showFileBrowser}">
+    <div class="floating-window-content clearfix">
+        <div class="head">
+            <h4>{{labels.selectTitle}}</h4>
+            <span class="popup-close-btn" data-ng-click="cancel()"></span>
+        </div>
+        <hr/>
+
+        <section class="">
+            <p data-ng-if="!fileList">No files to show</p>
+            <p><span class="c-pointer" data-ng-click="goBack()"><span class="up-icon"></span>Up to higher level directory</span></p>
+            <p>
+                <form class="form-horizontal" role="form" data-ng-submit="gotoPath()">
+                    <div class="form-group">
+                        <span class="col-sm-5">{{labels.selectedTitle}}:</span>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="selectedDirectory" data-ng-model="selectedPath"
+                                   data-ng-readonly="!isSelectedEdited"
+                                   data-ng-click="isSelectedEdited = true"
+                                   data-ng-blur="isSelectedEdited = false"/>
+                        </div>
+                    </div>
+
+                <div class="hidden"><input type="submit"/></div>
+                </form>
+            </p>
+            <div class="file-browser-table">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Last Modified</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="file-browser-tbody" id="file-browser-tbody" data-perfect-scrollbar>
+                    <table class="table table-condensed">
+                        <tbody>
+                        <tr ng-repeat="file in fileList">
+                            <td data-title="'Name'" class="c-pointer" data-ng-dblclick="openFile(file)" data-ng-click="selectPath(file)" data-item-id="{{file.fileName}}">
+                                <span data-ng-class="getClassName(file)"></span>
+                                <span data-ng-class="{bold: file.path == selectedPath}">{{file.fileName}}</span>
+                            </td>
+                            <td data-title="'Name'"><span ng-show="!file.isFolder">{{file.size}} KB</span></td><!-- TODO: remove tmep code -->
+                            <td data-title="'Name'">{{file.lastModified | date:'medium'}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+        <div class="file-browser-footer pull-right">
+            <button class="btn btn-sm btn-default" data-ng-click="cancel()" type="button">cancel</button>
+            <button class="btn btn-sm btn-default" data-ng-click="save()" type="button" data-ng-disabled="isSelectDisabled()">select</button>
+        </div>
+    </div>
+</div>
+

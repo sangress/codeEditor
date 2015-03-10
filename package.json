@@ -1,0 +1,22 @@
+{
+  "name": "codeEditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodewebkit src"
+  },
+  "author": "sangress",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-injector": "^0.6.0",
+    "grunt-wiredep": "^2.0.0"
+  },
+  "dependencies": {
+    "nodewebkit": "^0.11.6"
+  }
+}
