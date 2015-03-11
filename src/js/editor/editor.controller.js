@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('editor').controller('EditorController', function ($scope, $timeout) {
+angular.module('editor').controller('EditorController', function ($scope, $timeout, fsService) {
     $scope.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
@@ -11,8 +11,7 @@ angular.module('editor').controller('EditorController', function ($scope, $timeo
 
     $scope.save = function () {
         $timeout(function () {
-            var fs = require('fs');
-            fs.writeFile("/home/sangress/shai.js", $scope.file, function(err) {
+            fsService.writeFile("/home/sangress/shai.js", $scope.file, function(err) {
                 if(err) {
                     console.log(err);
                 } else {
