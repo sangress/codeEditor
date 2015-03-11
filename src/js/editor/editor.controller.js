@@ -7,22 +7,36 @@ angular.module('editor').controller('EditorController', function ($scope, $timeo
         mode: 'javascript'
     };
 
-    $scope.file = "var nodeWebkit = 'Awesome!';\n";
+    $scope.file = {};
+    $scope.file.content = "var nodeWebkit = 'Awesome!';\n";
 
     $scope.save = function () {
         $timeout(function () {
-            fsService.writeFile("/home/sangress/shai.js", $scope.file, function(err) {
-                if(err) {
-                    console.log(err);
-                } else {
-                    console.log("The file was saved!");
-                }
-            });
+            if ($scope.file.path) {
+                fsService.writeFile($scope.file.path, $scope.file.content, function(err) {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        console.log("The file was saved!");
+                    }
+                });
+            }
         });
     };
 
     $scope.$on('save-file', function () {
         $scope.save();
+    });
+
+    $scope.$on('load-file', function (e, data) {
+        if (data.path) {
+            $timeout(function () {
+                $scope.file.path = data.path;
+                $scope.file.content = fsService.readFileSync(data.path).toString();
+            });
+
+        }
+
     });
 
 
