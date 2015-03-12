@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('editor').directive('nav', ['$timeout', 'guiService',
-    function ($timeout, guiService) {
+angular.module('editor').directive('nav', ['$timeout', 'gui',
+    function ($timeout, gui) {
         return {
             templateUrl: 'js/common/directives/nav/_nav.html',
             restrict: 'E',
@@ -34,7 +34,7 @@ angular.module('editor').directive('nav', ['$timeout', 'guiService',
 
                 scope.exit = function () {
                     console.log('exit..');
-                    guiService.App.quit();
+                    gui.App.quit();
                 };
 
                 scope.changeLanguage = function () {

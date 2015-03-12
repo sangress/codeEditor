@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('editor').controller('EditorController', function ($scope, $timeout, fsService) {
+angular.module('editor').controller('EditorController', function ($scope, $timeout, fs) {
     $scope.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
@@ -13,7 +13,7 @@ angular.module('editor').controller('EditorController', function ($scope, $timeo
     $scope.save = function () {
         $timeout(function () {
             if ($scope.file.path) {
-                fsService.writeFile($scope.file.path, $scope.file.content, function(err) {
+                fs.writeFile($scope.file.path, $scope.file.content, function(err) {
                     if(err) {
                         console.log(err);
                     } else {
@@ -32,7 +32,7 @@ angular.module('editor').controller('EditorController', function ($scope, $timeo
         if (data.path) {
             $timeout(function () {
                 $scope.file.path = data.path;
-                $scope.file.content = fsService.readFileSync(data.path).toString();
+                $scope.file.content = fs.readFileSync(data.path).toString();
             });
 
         }

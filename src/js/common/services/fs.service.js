@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('codeEditor').factory('fsService', [
+angular.module('codeEditor').factory('fs', [
     function () {
         return require('fs');
     }
